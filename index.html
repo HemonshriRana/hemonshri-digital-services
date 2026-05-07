@@ -5,377 +5,397 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RANA'S Internet Cafe</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#030712;
-    color:white;
-    overflow-x:hidden;
+background:#030712;
+color:white;
+overflow-x:hidden;
 }
 
-/* animated background */
+/* SCROLLBAR */
 
-body::before{
-    content:'';
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.15), transparent 20%),
-    radial-gradient(circle at 80% 30%, rgba(255,0,255,0.15), transparent 20%),
-    radial-gradient(circle at 40% 70%, rgba(0,128,255,0.15), transparent 20%);
-    animation:bgmove 12s infinite alternate;
-    z-index:-2;
+::-webkit-scrollbar{
+width:8px;
 }
 
-@keyframes bgmove{
-    0%{transform:scale(1) translateY(0px);}
-    100%{transform:scale(1.1) translateY(-30px);}
+::-webkit-scrollbar-thumb{
+background:#00e5ff;
+border-radius:20px;
 }
 
-.particles{
-    position:fixed;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
+/* ANIMATED BG */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+overflow:hidden;
 }
 
-.particles span{
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    animation:float 10s linear infinite;
-    opacity:0.5;
+.bg-animation span{
+position:absolute;
+display:block;
+width:20px;
+height:20px;
+background:rgba(0,229,255,0.12);
+animation:animate 20s linear infinite;
+bottom:-150px;
+border-radius:50%;
+box-shadow:0 0 20px #00e5ff;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(100vh) scale(0);
-    }
-    to{
-        transform:translateY(-10vh) scale(1);
-    }
+.bg-animation span:nth-child(1){
+left:10%;
+width:80px;
+height:80px;
+animation-duration:18s;
 }
 
-/* navbar */
+.bg-animation span:nth-child(2){
+left:25%;
+width:30px;
+height:30px;
+animation-duration:12s;
+}
+
+.bg-animation span:nth-child(3){
+left:40%;
+width:100px;
+height:100px;
+animation-duration:25s;
+}
+
+.bg-animation span:nth-child(4){
+left:60%;
+width:50px;
+height:50px;
+animation-duration:16s;
+}
+
+.bg-animation span:nth-child(5){
+left:80%;
+width:120px;
+height:120px;
+animation-duration:28s;
+}
+
+@keyframes animate{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-1200px) rotate(720deg);
+opacity:0;
+}
+}
+
+/* NAVBAR */
 
 nav{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:20px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(12px);
-    z-index:999;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
-    font-size:28px;
-    font-weight:700;
-    color:#00eaff;
-    text-shadow:0 0 12px #00eaff;
+font-size:34px;
+font-weight:700;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
 }
 
 nav ul{
-    display:flex;
-    gap:35px;
-    list-style:none;
+display:flex;
+gap:35px;
+list-style:none;
 }
 
 nav ul li a{
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-    font-weight:500;
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:0.3s;
 }
 
 nav ul li a:hover{
-    color:#00eaff;
+color:#00e5ff;
+text-shadow:0 0 10px #00e5ff;
 }
 
-/* hero */
+/* HERO */
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    flex-direction:column;
-    padding:120px 20px 60px;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+position:relative;
+}
+
+.hero-content{
+animation:fadeIn 2s ease;
 }
 
 .hero h1{
-    font-size:75px;
-    font-weight:800;
-    background:linear-gradient(to right,#00eaff,#ff00ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-shadow:0 0 25px rgba(255,255,255,0.3);
-    animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-    from{
-        filter:drop-shadow(0 0 10px #00eaff);
-    }
-    to{
-        filter:drop-shadow(0 0 25px #ff00ff);
-    }
+font-size:75px;
+font-weight:700;
+margin-bottom:20px;
+text-shadow:0 0 30px #00e5ff;
 }
 
 .hero p{
-    margin-top:20px;
-    font-size:22px;
-    color:#ddd;
-    max-width:900px;
-    line-height:1.8;
+font-size:24px;
+color:#cbd5e1;
+margin-bottom:40px;
 }
 
-.hero-buttons{
-    margin-top:40px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
+.hero-btn{
+padding:18px 45px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#00e5ff,#00ff88);
+color:black;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 30px rgba(0,229,255,0.5);
+text-decoration:none;
+display:inline-block;
 }
 
-.btn{
-    padding:15px 35px;
-    border-radius:40px;
-    border:none;
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:0.4s;
-    background:linear-gradient(45deg,#00eaff,#8a2be2);
-    box-shadow:0 0 20px rgba(0,255,255,0.5);
+.hero-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 50px #00e5ff;
 }
 
-.btn:hover{
-    transform:translateY(-5px) scale(1.05);
-    box-shadow:0 0 30px #00eaff;
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(60px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
-/* section */
-
-section{
-    padding:90px 7%;
-}
+/* SECTION */
 
 .section-title{
-    text-align:center;
-    margin-bottom:60px;
+text-align:center;
+font-size:55px;
+margin-bottom:60px;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
 }
 
-.section-title h2{
-    font-size:45px;
-    color:#00eaff;
-    margin-bottom:15px;
+/* SERVICES */
+
+.services{
+padding:120px 8%;
 }
 
-.section-title p{
-    color:#ccc;
-}
-
-/* cards */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
 }
 
 .card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:35px;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:30px;
+transition:0.5s;
+position:relative;
+overflow:hidden;
 }
 
 .card::before{
-    content:'';
-    position:absolute;
-    width:150%;
-    height:150%;
-    background:linear-gradient(45deg,transparent,#00eaff33,transparent);
-    transform:rotate(25deg);
-    top:-120%;
-    left:-120%;
-    transition:0.8s;
+content:'';
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,transparent,#00e5ff33,transparent);
+top:-50%;
+left:-50%;
+transform:rotate(25deg);
+transition:0.8s;
 }
 
 .card:hover::before{
-    top:100%;
-    left:100%;
+left:100%;
 }
 
 .card:hover{
-    transform:translateY(-15px) scale(1.02);
-    box-shadow:0 0 30px rgba(0,255,255,0.3);
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 0 40px rgba(0,229,255,0.25);
+border-color:#00e5ff;
 }
 
-.card h3{
-    font-size:30px;
-    margin-bottom:25px;
-    color:#fff;
+.card h2{
+font-size:34px;
+margin-bottom:25px;
+color:#00e5ff;
 }
 
 .card ul{
-    list-style:none;
+list-style:none;
 }
 
 .card ul li{
-    margin-bottom:14px;
-    color:#ddd;
-    position:relative;
-    padding-left:28px;
+margin-bottom:16px;
+font-size:18px;
+display:flex;
+align-items:center;
+gap:12px;
+color:#e2e8f0;
 }
 
 .card ul li::before{
-    content:'➜';
-    position:absolute;
-    left:0;
-    color:#00eaff;
+content:"➜";
+color:#00ff88;
+font-weight:bold;
+font-size:20px;
 }
 
-.payment-note{
-    margin-top:25px;
-    padding:14px;
-    border-radius:15px;
-    background:rgba(255,255,255,0.06);
-    color:#ffcc70;
-    border:1px solid rgba(255,255,255,0.08);
+.price-box{
+margin-top:28px;
+background:rgba(255,255,255,0.06);
+padding:16px;
+border-radius:18px;
+font-size:17px;
+color:#ffcc70;
+border:1px solid rgba(255,255,255,0.08);
 }
 
-.whatsapp{
-    display:inline-block;
-    margin-top:25px;
-    padding:14px 30px;
-    border-radius:40px;
-    text-decoration:none;
-    background:#00c853;
-    color:white;
-    font-weight:600;
-    transition:0.3s;
+.apply-btn{
+display:inline-block;
+margin-top:28px;
+padding:15px 30px;
+border-radius:50px;
+background:linear-gradient(45deg,#00e5ff,#00ff88);
+color:black;
+font-weight:700;
+text-decoration:none;
+transition:0.4s;
 }
 
-.whatsapp:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 25px #00ff6a;
+.apply-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #00e5ff;
 }
 
-/* payment section */
+/* CONTACT */
 
-.payment-box{
-    margin-top:50px;
-    background:rgba(255,255,255,0.04);
-    border-radius:30px;
-    padding:50px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.08);
+.contact{
+padding:120px 8%;
 }
 
-.payment-box img{
-    width:260px;
-    border-radius:20px;
-    margin-bottom:25px;
-    box-shadow:0 0 25px rgba(255,255,255,0.15);
+.contact-box{
+background:rgba(255,255,255,0.05);
+padding:50px;
+border-radius:30px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(0,229,255,0.15);
 }
 
-.payment-box h3{
-    font-size:35px;
-    margin-bottom:15px;
-    color:#00eaff;
+.contact-box h2{
+font-size:42px;
+margin-bottom:25px;
+color:#00e5ff;
 }
 
-.payment-box p{
-    margin:10px 0;
-    color:#ddd;
-    font-size:18px;
+.contact-box p{
+font-size:19px;
+margin-bottom:15px;
+color:#e2e8f0;
 }
 
-/* contact */
+/* QR */
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:40px;
+.qr{
+margin-top:40px;
+text-align:center;
 }
 
-.contact-card{
-    background:rgba(255,255,255,0.04);
-    border-radius:25px;
-    padding:40px;
-    border:1px solid rgba(255,255,255,0.08);
+.qr img{
+width:280px;
+border-radius:25px;
+border:3px solid #00e5ff;
+box-shadow:0 0 35px rgba(0,229,255,0.35);
+transition:0.4s;
 }
 
-.contact-card h3{
-    color:#00eaff;
-    margin-bottom:25px;
-    font-size:30px;
+.qr img:hover{
+transform:scale(1.05);
 }
 
-.contact-card p{
-    margin-bottom:18px;
-    color:#ddd;
-    line-height:1.7;
-}
-
-/* footer */
+/* FOOTER */
 
 footer{
-    padding:35px;
-    text-align:center;
-    color:#aaa;
-    border-top:1px solid rgba(255,255,255,0.08);
-    margin-top:60px;
+padding:35px;
+text-align:center;
+background:black;
+margin-top:80px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* responsive */
+/* MOBILE */
 
 @media(max-width:768px){
 
 .hero h1{
-    font-size:48px;
+font-size:48px;
 }
 
 .hero p{
-    font-size:18px;
+font-size:18px;
 }
 
-nav{
-    flex-direction:column;
-    gap:15px;
+.section-title{
+font-size:40px;
+}
+
+.logo{
+font-size:24px;
 }
 
 nav ul{
-    gap:18px;
-    flex-wrap:wrap;
-    justify-content:center;
+gap:18px;
+}
+
+nav ul li a{
+font-size:14px;
 }
 
 }
@@ -385,15 +405,12 @@ nav ul{
 
 <body>
 
-<div class="particles">
-<span style="left:5%;animation-delay:1s;"></span>
-<span style="left:15%;animation-delay:3s;"></span>
-<span style="left:25%;animation-delay:5s;"></span>
-<span style="left:40%;animation-delay:2s;"></span>
-<span style="left:55%;animation-delay:6s;"></span>
-<span style="left:70%;animation-delay:4s;"></span>
-<span style="left:82%;animation-delay:7s;"></span>
-<span style="left:95%;animation-delay:1s;"></span>
+<div class="bg-animation">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 </div>
 
 <nav>
@@ -402,58 +419,65 @@ nav ul{
 <ul>
 <li><a href="#">Home</a></li>
 <li><a href="#services">Services</a></li>
-<li><a href="#payment">Payment</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
 
-<div class="hero">
+<!-- HERO PAGE -->
+
+<section class="hero">
+
+<div class="hero-content">
 
 <h1>RANA'S Internet Cafe</h1>
 
 <p>
-Digital Services • Online Forms • Passport • PAN • Aadhaar • Ticket Booking
-<br><br>
-Fast Service • Trusted Work • Online Support Available
+Professional Digital Services • Government Works • Online Support
 </p>
 
-<div class="hero-buttons">
-<a href="https://wa.me/918455906942" class="btn">WhatsApp Now</a>
-<a href="#services" class="btn">Explore Services</a>
-</div>
+<a href="#services" class="hero-btn">
+Explore Our Services
+</a>
 
 </div>
 
-<section id="services">
+</section>
 
-<div class="section-title">
-<h2>Our Services</h2>
-<p>Professional Digital Services Available Here</p>
-</div>
+<!-- SERVICES -->
 
-<div class="grid">
+<section class="services" id="services">
+
+<h1 class="section-title">Our Services</h1>
+
+<div class="service-grid">
+
+<!-- PASSPORT -->
 
 <div class="card">
-<h3>🛂 Passport Service</h3>
+<h2>🛂 Passport Service</h2>
 
 <ul>
 <li>New Passport Apply</li>
-<li>Renewal</li>
+<li>Passport Renewal</li>
 <li>Tatkaal Filing</li>
 <li>Name / DOB Correction</li>
 <li>Address Update</li>
-<li>Required Documents Guidance</li>
+<li>Document Guidance</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/918455906942">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- PAN -->
 
 <div class="card">
-<h3>💳 PAN Card Service</h3>
+<h2>💳 PAN Card Service</h2>
 
 <ul>
 <li>New PAN Apply</li>
@@ -463,15 +487,19 @@ Fast Service • Trusted Work • Online Support Available
 <li>e-PAN Download</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/918455906942">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- AADHAAR -->
 
 <div class="card">
-<h3>🪪 Aadhaar Service</h3>
+<h2>🪪 Aadhaar Service</h2>
 
 <ul>
 <li>Guardian Name Correction</li>
@@ -482,15 +510,19 @@ Fast Service • Trusted Work • Online Support Available
 <li>Visit Required At Shop</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/918455906942">WhatsApp Now</a>
+<a href="https://wa.me/919337839933" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- TICKET -->
 
 <div class="card">
-<h3>🎫 Ticket Booking</h3>
+<h2>🎫 Ticket Booking</h2>
 
 <ul>
 <li>Train Ticket</li>
@@ -500,169 +532,139 @@ Fast Service • Trusted Work • Online Support Available
 <li>Travel Assistance</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/919337839933">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- DL -->
 
 <div class="card">
-<h3>🚘 Driving Licence</h3>
+<h2>🚘 DL / LL Service</h2>
 
 <ul>
-<li>LL Apply</li>
-<li>LL Exam Available</li>
-<li>Driving Licence Apply</li>
-<li>DL Correction</li>
-<li>Renewal</li>
+<li>Learning License Apply</li>
+<li>DL Renewal</li>
+<li>Driving Test Slot</li>
+<li>Address Correction</li>
+<li>Online Exam Guidance</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/919337839933">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- VOTER -->
 
 <div class="card">
-<h3>🗳️ Voter ID Service</h3>
+<h2>🗳️ Voter ID Service</h2>
 
 <ul>
-<li>New Registration</li>
+<li>New Voter ID</li>
 <li>Correction</li>
-<li>Address Update</li>
+<li>Address Change</li>
 <li>EPIC Download</li>
-<li>Mobile Number Update</li>
+<li>Name Addition</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/919337839933">WhatsApp Now</a>
+<a href="https://wa.me/919337839933" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- LAND -->
 
 <div class="card">
-<h3>📄 Land Record Service</h3>
+<h2>📄 Land Record Service</h2>
 
 <ul>
-<li>ROR / Khatiyan</li>
-<li>Land Revenue Payment</li>
-<li>Pauti Receipt</li>
-<li>Land Record Print</li>
+<li>ROR Download</li>
+<li>Land Record Check</li>
+<li>Online Verification</li>
 <li>Plot Information</li>
+<li>Land PDF Print</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/919337839933">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
+
+<!-- PROJECT -->
 
 <div class="card">
-<h3>🖥️ Online Form Filling</h3>
+<h2>💻 Online Form / PPT</h2>
 
 <ul>
-<li>College Admission</li>
-<li>Job Application</li>
-<li>Scholarship Form</li>
-<li>Competitive Exam Form</li>
-<li>PPT & Projects</li>
-<li>Resume / CV Making</li>
+<li>Government Forms</li>
+<li>Scholarship Apply</li>
+<li>Exam Forms</li>
+<li>Project Making</li>
+<li>PPT Design</li>
 </ul>
 
-<div class="payment-note">
-💰 Payment decide contact karne se hoga.
+<div class="price-box">
+💰 Contact For Apply & Price Details
 </div>
 
-<a class="whatsapp" href="https://wa.me/918455906942">WhatsApp Now</a>
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
 </div>
-
-</div>
-</section>
-
-<section id="payment">
-
-<div class="section-title">
-<h2>Online Payment</h2>
-<p>Pay Securely Using UPI</p>
-</div>
-
-<div class="payment-box">
-
-<img src="image.png" alt="QR Code">
-
-<h3>Scan & Pay</h3>
-
-<p><strong>UPI Name:</strong> Hemonshri Rana</p>
-<p><strong>UPI ID:</strong> hemonshrirana@oksbi</p>
-<p><strong>PhonePe / GPay / Paytm:</strong> 9337839933</p>
-
-<br>
-
-<p>
-After payment please share screenshot on WhatsApp.
-</p>
 
 </div>
 
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
 
-<div class="section-title">
-<h2>Contact Details</h2>
-<p>Feel Free To Contact Anytime</p>
-</div>
+<section class="contact" id="contact">
 
-<div class="contact-grid">
+<h1 class="section-title">Contact Details</h1>
 
-<div class="contact-card">
+<div class="contact-box">
 
-<h3>📞 Contact Info</h3>
+<h2>📍 RANA'S Internet Cafe</h2>
 
 <p><strong>Owner:</strong> Hemonshri Rana</p>
 
-<p><strong>Mobile:</strong><br>
-8455906942 / 9337839933
-</p>
+<p><strong>Mobile:</strong> 8455906942 / 9337839933</p>
 
-<p><strong>Email:</strong><br>
-hemonshrirana@gmail.com
-</p>
+<p><strong>Email:</strong> hemonshrirana@gmail.com</p>
 
-<p>
-<strong>Address:</strong><br>
+<p><strong>Address:</strong><br>
 At- Jamkei, PO- Jakaikela,<br>
-PS- Bonaigarh,<br>
-Dist- Sundargarh,<br>
+PS- Bonaigarh, Dist- Sundargarh,<br>
 Odisha - 770038
 </p>
 
-<a href="https://wa.me/918455906942" class="btn">
-Chat On WhatsApp
-</a>
-
-</div>
-
-<div class="contact-card">
-
-<h3>📍 Our Location</h3>
+<p><strong>UPI ID:</strong> hemonshrirana@oksbi</p>
 
 <p>
-Visit Our Internet Cafe For Aadhaar Updates, Online Forms,
-Passport Services, PAN Services & More.
+<a href="https://maps.google.com" style="color:#00e5ff;">
+📍 Open Google Maps
+</a>
 </p>
 
-<br>
-
-<a href="https://www.google.com/maps/place/RANA'S+Internet+Cafe/@21.7907912,84.9704037,17.39z/data=!4m6!3m5!1s0x3a1f8139328a50bf:0x5399f7feccc01446!8m2!3d21.791128!4d84.9687363!16s%2Fg%2F11yw_8qblx?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
-class="btn">
-Open Google Maps
-</a>
-
+<div class="qr">
+<img src="image.png" alt="QR Code">
 </div>
 
 </div>
@@ -670,7 +672,9 @@ Open Google Maps
 </section>
 
 <footer>
+
 © 2026 RANA'S Internet Cafe • All Rights Reserved
+
 </footer>
 
 </body>
