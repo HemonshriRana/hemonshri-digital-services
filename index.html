@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RANA'S Internet Cafe</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 scroll-behavior:smooth;
-font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#050816;
+font-family:'Poppins',sans-serif;
+background:#020617;
 color:white;
 overflow-x:hidden;
 }
@@ -26,7 +26,7 @@ overflow-x:hidden;
 /* SCROLLBAR */
 
 ::-webkit-scrollbar{
-width:10px;
+width:8px;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -39,22 +39,33 @@ border-radius:20px;
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 padding:18px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(15px);
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.1);
+border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
 .logo{
-font-size:32px;
+font-size:2rem;
 font-weight:800;
 color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
+text-shadow:0 0 15px #00e5ff;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #00e5ff;
+}
+to{
+text-shadow:0 0 30px #00e5ff;
+}
 }
 
 nav ul{
@@ -64,118 +75,114 @@ list-style:none;
 }
 
 nav ul li a{
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-weight:600;
 transition:0.3s;
 }
 
 nav ul li a:hover{
 color:#00e5ff;
+text-shadow:0 0 10px #00e5ff;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
+padding:120px 20px;
 position:relative;
+overflow:hidden;
 }
 
 .hero::before{
 content:'';
 position:absolute;
-width:500px;
-height:500px;
-background:#00e5ff;
-filter:blur(200px);
-opacity:0.15;
-animation:float 6s infinite alternate;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00e5ff22,transparent);
+top:-200px;
+left:-150px;
+animation:float1 7s infinite alternate;
 }
 
-@keyframes float{
-from{
-transform:translateY(-20px);
-}
-to{
-transform:translateY(40px);
-}
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-animation:fadeUp 1.5s ease;
+.hero::after{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#ff00ff22,transparent);
+bottom:-200px;
+right:-150px;
+animation:float2 7s infinite alternate;
 }
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(80px);
+@keyframes float1{
+from{transform:translateY(0px);}
+to{transform:translateY(50px);}
 }
-to{
-opacity:1;
-transform:translateY(0);
-}
+
+@keyframes float2{
+from{transform:translateY(0px);}
+to{transform:translateY(-50px);}
 }
 
 .hero h1{
-font-size:75px;
+font-size:5rem;
 font-weight:800;
-line-height:1.1;
 margin-bottom:20px;
-text-shadow:0 0 30px #00e5ff;
+text-shadow:0 0 25px cyan;
+z-index:2;
 }
 
 .hero p{
-font-size:24px;
-color:#d8d8d8;
-margin-bottom:40px;
+font-size:1.3rem;
+color:#cbd5e1;
+margin-bottom:35px;
+z-index:2;
 }
 
 .hero-btn{
-display:inline-block;
-padding:18px 40px;
+padding:16px 40px;
+border:none;
 border-radius:50px;
-background:linear-gradient(45deg,#00e5ff,#00ff99);
-color:black;
-font-size:18px;
+font-size:1rem;
 font-weight:700;
-text-decoration:none;
+cursor:pointer;
+background:linear-gradient(90deg,#00e5ff,#00ff95);
+color:black;
 transition:0.4s;
-box-shadow:0 0 30px rgba(0,229,255,0.5);
+box-shadow:0 0 20px #00e5ff88;
+z-index:2;
 }
 
 .hero-btn:hover{
-transform:translateY(-5px) scale(1.05);
+transform:scale(1.08);
+box-shadow:0 0 40px #00e5ff;
 }
 
 /* SECTION */
 
+section{
+padding:80px 7%;
+}
+
 .section-title{
 text-align:center;
-font-size:55px;
-margin-bottom:70px;
-font-weight:800;
+font-size:3rem;
+margin-bottom:60px;
 color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
+text-shadow:0 0 15px cyan;
 }
+
+/* GRID */
 
 .services{
-padding:120px 7%;
-position:relative;
-}
-
-.services-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:35px;
@@ -184,20 +191,21 @@ gap:35px;
 /* CARD */
 
 .card{
-background:linear-gradient(180deg,#0d1329,#111936);
-border:1px solid rgba(255,255,255,0.08);
-border-radius:30px;
-padding:35px;
-transition:0.5s;
+background:linear-gradient(145deg,#07111f,#0f172a);
+border-radius:25px;
+padding:30px;
+border:1px solid rgba(0,255,255,0.15);
 position:relative;
 overflow:hidden;
-animation:cardFade 1.5s ease;
+transition:0.5s;
+box-shadow:0 0 20px rgba(0,255,255,0.08);
+animation:fadeUp 1s ease;
 }
 
-@keyframes cardFade{
+@keyframes fadeUp{
 from{
 opacity:0;
-transform:translateY(60px);
+transform:translateY(40px);
 }
 to{
 opacity:1;
@@ -208,115 +216,127 @@ transform:translateY(0);
 .card::before{
 content:'';
 position:absolute;
-width:250px;
-height:250px;
-background:#00e5ff;
-top:-100px;
-right:-100px;
-opacity:0.08;
-border-radius:50%;
-filter:blur(30px);
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:conic-gradient(transparent,#00e5ff55,transparent);
+animation:rotate 6s linear infinite;
+}
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.card::after{
+content:'';
+position:absolute;
+inset:2px;
+background:#07111f;
+border-radius:22px;
+z-index:1;
+}
+
+.card-content{
+position:relative;
+z-index:2;
 }
 
 .card:hover{
-transform:translateY(-15px) scale(1.02);
-box-shadow:0 0 40px rgba(0,229,255,0.25);
-border:1px solid #00e5ff;
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 0 35px rgba(0,255,255,0.3);
 }
 
-.card h2{
-font-size:38px;
-margin-bottom:25px;
-color:#ffffff;
+.card h3{
+font-size:2rem;
+margin-bottom:20px;
+color:#00e5ff;
 }
 
 .card ul{
 list-style:none;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .card ul li{
-margin:14px 0;
-font-size:18px;
-color:#dcdcdc;
+margin-bottom:12px;
+color:#e2e8f0;
 position:relative;
 padding-left:28px;
-line-height:1.6;
+line-height:1.5;
 }
 
 .card ul li::before{
 content:'➜';
 position:absolute;
 left:0;
-color:#00e5ff;
+color:#00ff95;
 font-weight:bold;
 }
 
 /* BUTTON */
 
-.card-btn{
+.service-btn{
 display:inline-block;
-padding:16px 28px;
-border-radius:40px;
-background:linear-gradient(45deg,#00e5ff,#00ff99);
+margin-top:10px;
+padding:14px 28px;
+border-radius:50px;
+background:linear-gradient(90deg,#00e5ff,#00ff95);
 color:black;
 font-weight:700;
 text-decoration:none;
 transition:0.4s;
-margin-top:10px;
-box-shadow:0 0 20px rgba(0,229,255,0.4);
+box-shadow:0 0 15px #00e5ff66;
 }
 
-.card-btn:hover{
-transform:scale(1.08);
+.service-btn:hover{
+transform:scale(1.06);
+box-shadow:0 0 30px #00e5ff;
 }
 
-/* CONTACT SECTION */
+/* CONTACT */
 
-.contact{
-padding:120px 7%;
-background:#0b1020;
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+margin-top:50px;
 }
 
 .contact-box{
-max-width:900px;
-margin:auto;
-background:linear-gradient(180deg,#121d3d,#0b1020);
-padding:50px;
-border-radius:35px;
-border:1px solid rgba(255,255,255,0.08);
-text-align:center;
-box-shadow:0 0 40px rgba(0,229,255,0.12);
+background:#07111f;
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(0,255,255,0.15);
+transition:0.4s;
 }
 
-.contact-box h2{
-font-size:48px;
-margin-bottom:25px;
+.contact-box:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,255,255,0.2);
+}
+
+.contact-box h3{
+margin-bottom:20px;
+font-size:2rem;
 color:#00e5ff;
 }
 
 .contact-box p{
-font-size:20px;
-margin:14px 0;
-color:#d9d9d9;
+margin-bottom:12px;
+color:#dbeafe;
+line-height:1.7;
 }
 
-/* PAYMENT */
+/* QR */
 
-.payment{
-margin-top:30px;
-}
-
-.payment img{
-width:260px;
-border-radius:25px;
-border:4px solid #00e5ff;
-box-shadow:0 0 30px rgba(0,229,255,0.5);
-transition:0.4s;
-}
-
-.payment img:hover{
-transform:scale(1.05);
+.qr{
+width:220px;
+border-radius:20px;
+margin-top:15px;
+border:3px solid cyan;
 }
 
 /* FOOTER */
@@ -324,9 +344,10 @@ transform:scale(1.05);
 footer{
 padding:25px;
 text-align:center;
-background:black;
-color:#bfbfbf;
-font-size:15px;
+background:#000814;
+border-top:1px solid rgba(0,255,255,0.2);
+margin-top:60px;
+color:#94a3b8;
 }
 
 /* MOBILE */
@@ -334,27 +355,24 @@ font-size:15px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:18px;
+font-size:3rem;
 }
 
 .section-title{
-font-size:40px;
+font-size:2.2rem;
 }
 
-.logo{
-font-size:22px;
+nav{
+padding:15px 5%;
 }
 
 nav ul{
 gap:18px;
+font-size:0.9rem;
 }
 
-.card h2{
-font-size:30px;
+.logo{
+font-size:1.5rem;
 }
 
 }
@@ -371,7 +389,7 @@ font-size:30px;
 <div class="logo">RANA'S Internet Cafe</div>
 
 <ul>
-<li><a href="#">Home</a></li>
+<li><a href="#home">Home</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -380,156 +398,249 @@ font-size:30px;
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<div class="hero-content">
-
-<h1>Explore Our Services</h1>
+<h1>RANA'S INTERNET CAFE</h1>
 
 <p>
-Fast • Trusted • Professional Digital Services
+All Digital Services • Fast & Reliable • Trusted Work • Online Support Available
 </p>
 
-<a href="#services" class="hero-btn">
-Explore Now
+<a href="#services">
+<button class="hero-btn">
+Explore Our Services
+</button>
 </a>
-
-</div>
 
 </section>
 
 <!-- SERVICES -->
 
-<section class="services" id="services">
+<section id="services">
 
-<h1 class="section-title">
-Our Services
-</h1>
+<h2 class="section-title">
+OUR SERVICES
+</h2>
 
-<div class="services-grid">
+<div class="services">
 
 <!-- PASSPORT -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>🛂 Passport Service</h2>
+<h3>🛂 Passport Service</h3>
 
 <ul>
 <li>New Passport Apply / Renewal</li>
 <li>Correction / Reissue</li>
 <li>Tatkaal Passport Filing</li>
-<li>Name / DOB / Address Update</li>
-<li>Required Documents Guidance</li>
+<li>Name / DOB Correction</li>
+<li>Address Update</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
 </div>
+</div>
 
-<!-- TICKET -->
+<!-- FLIGHT -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>🎫 Ticket Booking</h2>
+<h3>✈ Flight Booking</h3>
 
 <ul>
 <li>Domestic Flight Booking</li>
 <li>International Flight Booking</li>
-<li>Train Ticket Booking</li>
-<li>Bus Ticket Booking</li>
 <li>Reschedule / Cancellation</li>
 <li>Travel Assistance</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
+</div>
+</div>
+
+<!-- TRAIN -->
+
+<div class="card">
+<div class="card-content">
+
+<h3>🚆 Train Booking</h3>
+
+<ul>
+<li>Train Ticket Booking</li>
+<li>Tatkaal Ticket Booking</li>
+<li>PNR Status Check</li>
+<li>Cancellation Handling</li>
+</ul>
+
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
+</a>
+
+</div>
+</div>
+
+<!-- BUS -->
+
+<div class="card">
+<div class="card-content">
+
+<h3>🚌 Bus Booking</h3>
+
+<ul>
+<li>Bus Ticket Booking</li>
+<li>Seat Selection</li>
+<li>Reschedule & Cancellation</li>
+<li>All India Bus Booking</li>
+</ul>
+
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
+</a>
+
+</div>
 </div>
 
 <!-- LAND -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>📄 Land Records Works</h2>
+<h3>🗺 Land Records</h3>
 
 <ul>
 <li>Land Revenue Payment</li>
 <li>Pauti Receipt Service</li>
-<li>Land Record (Pota Kagaz)</li>
-<li>Online Record Printing</li>
+<li>Pota Kagaz Printing</li>
+<li>Land Related Online Work</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
 </div>
+</div>
 
-<!-- CERTIFICATE -->
+<!-- SERVICE PLUS -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>🏛️ Certificate Services</h2>
+<h3>📄 ServicePlus</h3>
 
 <ul>
 <li>Income Certificate</li>
 <li>Caste Certificate</li>
 <li>Resident Certificate</li>
-<li>ServicePlus Application</li>
+<li>Online Government Forms</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
+</div>
 </div>
 
 <!-- VOTER -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>🗳️ Voter ID Services</h2>
+<h3>🗳 Voter ID</h3>
 
 <ul>
 <li>New Voter Registration</li>
 <li>Voter ID Correction</li>
-<li>Address Update</li>
+<li>Address Change</li>
 <li>EPIC Download</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
+</div>
 </div>
 
 <!-- DL -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>🚘 Driving Licence</h2>
+<h3>🚗 Driving Licence</h3>
 
 <ul>
 <li>Driving Licence Apply</li>
-<li>Learner's Licence Apply</li>
-<li>DL Slot Booking</li>
-<li>Exam Assistance</li>
+<li>Learner Licence Apply</li>
+<li>DL Renewal</li>
+<li>Address Change</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
 </div>
+</div>
 
-<!-- ONLINE FORM -->
+<!-- AADHAAR -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>💻 Online Form Filling</h2>
+<h3>🪪 Aadhaar Services</h3>
+
+<ul>
+<li>Address Update</li>
+<li>Guardian Name Update</li>
+<li>Aadhaar PVC Card Apply</li>
+<li>Phone Number Update</li>
+</ul>
+
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
+</a>
+
+</div>
+</div>
+
+<!-- PAN -->
+
+<div class="card">
+<div class="card-content">
+
+<h3>💳 NSDL PAN Card</h3>
+
+<ul>
+<li>PAN Card Apply</li>
+<li>PAN Correction</li>
+<li>PAN Reprint</li>
+<li>PAN Aadhaar Linking</li>
+</ul>
+
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
+</a>
+
+</div>
+</div>
+
+<!-- FORM -->
+
+<div class="card">
+<div class="card-content">
+
+<h3>🖥 Online Form Filling</h3>
 
 <ul>
 <li>College Admission</li>
@@ -538,68 +649,32 @@ Click For Apply & Price Details
 <li>Competitive Exam Form</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
 </div>
-
-<!-- AADHAAR -->
-
-<div class="card">
-
-<h2>🪪 Aadhaar Card Services</h2>
-
-<ul>
-<li>Address Update</li>
-<li>Father / Guardian Name Update</li>
-<li>Aadhaar PVC Card Apply</li>
-<li>Phone Number Update</li>
-</ul>
-
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
-</a>
-
 </div>
 
-<!-- PAN -->
+<!-- PROJECT -->
 
 <div class="card">
+<div class="card-content">
 
-<h2>💳 NSDL PAN Card Services</h2>
-
-<ul>
-<li>PAN Card Apply</li>
-<li>PAN Card Correction</li>
-<li>PAN Reprint</li>
-<li>PAN Aadhaar Linking</li>
-</ul>
-
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
-</a>
-
-</div>
-
-<!-- DESIGN -->
-
-<div class="card">
-
-<h2>🎨 Project & Designing</h2>
+<h3>📊 Project & Designing</h3>
 
 <ul>
 <li>College Project Work</li>
-<li>PDF / Word Reports</li>
-<li>PowerPoint Presentation (PPT)</li>
-<li>Video PPT Design</li>
-<li>Professional Designing Work</li>
+<li>PPT Presentation Design</li>
+<li>Poster / Banner Design</li>
+<li>Video PPT & Report Design</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="card-btn">
-Click For Apply & Price Details
+<a class="service-btn" href="https://wa.me/919337839933" target="_blank">
+Click For Apply & Know Prices
 </a>
 
+</div>
 </div>
 
 </div>
@@ -608,25 +683,61 @@ Click For Apply & Price Details
 
 <!-- CONTACT -->
 
-<section class="contact" id="contact">
+<section id="contact">
+
+<h2 class="section-title">
+CONTACT & PAYMENT DETAILS
+</h2>
+
+<div class="contact-grid">
+
+<!-- CONTACT -->
 
 <div class="contact-box">
 
-<h2>Contact Details</h2>
+<h3>📞 Contact Details</h3>
 
-<p><strong>📍 Address:</strong> Bonaigarh, Odisha, India</p>
+<p><b>Owner:</b> Hemonshri Rana</p>
 
-<p><strong>📞 Phone:</strong> 9337839933</p>
+<p><b>Mobile:</b> 9337839933 / 8455906942</p>
 
-<p><strong>📞 Alternate:</strong> 8455906942</p>
+<p><b>Email:</b> hemonshrirana@gmail.com</p>
 
-<p><strong>💬 WhatsApp:</strong> 9337839933</p>
+<p><b>Working Hours:</b> 8:00 AM - 8:00 PM</p>
 
-<p><strong>💳 UPI ID:</strong> hemonshrirana@oksbi</p>
+<p><b>Status:</b> Open All 7 Days</p>
 
-<div class="payment">
+</div>
 
-<img src="image.png" alt="QR Payment">
+<!-- ADDRESS -->
+
+<div class="contact-box">
+
+<h3>📍 Address</h3>
+
+<p>
+At - Jamkei<br>
+PO - Jakaikela<br>
+PS - Bonaigarh<br>
+Dist - Sundargarh<br>
+Odisha - 770038
+</p>
+
+<a class="service-btn" href="https://maps.google.com" target="_blank">
+Open In Google Maps
+</a>
+
+</div>
+
+<!-- PAYMENT -->
+
+<div class="contact-box">
+
+<h3>💰 Payment Details</h3>
+
+<p><b>UPI ID:</b><br> hemonshrirana@oksbi</p>
+
+<img src="image.png" class="qr">
 
 </div>
 
@@ -636,7 +747,7 @@ Click For Apply & Price Details
 
 <footer>
 
-© 2026 RANA'S Internet Cafe • All Rights Reserved
+© 2025 RANA'S Internet Cafe • All Rights Reserved
 
 </footer>
 
