@@ -18,7 +18,7 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#020617;
+background:#030712;
 color:white;
 overflow-x:hidden;
 }
@@ -34,39 +34,95 @@ background:#00e5ff;
 border-radius:20px;
 }
 
+/* BACKGROUND ANIMATION */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+overflow:hidden;
+}
+
+.bg-animation span{
+position:absolute;
+display:block;
+border-radius:50%;
+background:rgba(0,229,255,0.12);
+animation:animate 20s linear infinite;
+bottom:-150px;
+box-shadow:0 0 25px #00e5ff;
+}
+
+.bg-animation span:nth-child(1){
+left:10%;
+width:90px;
+height:90px;
+animation-duration:18s;
+}
+
+.bg-animation span:nth-child(2){
+left:30%;
+width:40px;
+height:40px;
+animation-duration:12s;
+}
+
+.bg-animation span:nth-child(3){
+left:50%;
+width:120px;
+height:120px;
+animation-duration:25s;
+}
+
+.bg-animation span:nth-child(4){
+left:70%;
+width:60px;
+height:60px;
+animation-duration:15s;
+}
+
+.bg-animation span:nth-child(5){
+left:85%;
+width:150px;
+height:150px;
+animation-duration:28s;
+}
+
+@keyframes animate{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-1200px) rotate(720deg);
+opacity:0;
+}
+}
+
 /* NAVBAR */
 
 nav{
 position:fixed;
 top:0;
-left:0;
 width:100%;
 padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(15px);
-z-index:1000;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+z-index:999;
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
-font-size:35px;
+font-size:34px;
 font-weight:800;
 color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #00e5ff;
-}
-to{
-text-shadow:0 0 25px #00e5ff,
-0 0 45px #00e5ff;
-}
+text-shadow:0 0 25px #00e5ff;
 }
 
 nav ul{
@@ -79,82 +135,33 @@ nav ul li a{
 text-decoration:none;
 color:white;
 font-size:18px;
-font-weight:500;
-transition:0.4s;
+transition:0.3s;
 }
 
 nav ul li a:hover{
 color:#00e5ff;
-text-shadow:0 0 10px #00e5ff;
+text-shadow:0 0 12px #00e5ff;
 }
 
 /* HERO */
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:120px 8%;
-background:
-radial-gradient(circle at top left,#0f172a,#020617 50%);
-position:relative;
-overflow:hidden;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-width:600px;
-height:600px;
-background:#00e5ff22;
-filter:blur(140px);
-top:-200px;
-left:-150px;
-animation:float1 8s infinite alternate;
-}
-
-.hero::after{
-content:'';
-position:absolute;
-width:500px;
-height:500px;
-background:#9333ea33;
-filter:blur(140px);
-bottom:-200px;
-right:-150px;
-animation:float2 8s infinite alternate;
-}
-
-@keyframes float1{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(80px);
-}
-}
-
-@keyframes float2{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(-80px);
-}
+padding:0 20px;
 }
 
 .hero-content{
-position:relative;
-z-index:1;
-animation:fadeUp 1.5s ease;
+animation:fadeUp 1.8s ease;
 }
 
 @keyframes fadeUp{
 from{
 opacity:0;
-transform:translateY(50px);
+transform:translateY(70px);
 }
 to{
 opacity:1;
@@ -163,305 +170,216 @@ transform:translateY(0);
 }
 
 .hero h1{
-font-size:75px;
+font-size:85px;
 font-weight:800;
-line-height:1.2;
 margin-bottom:20px;
-}
-
-.hero h1 span{
-color:#00e5ff;
-text-shadow:0 0 25px #00e5ff;
+text-shadow:0 0 35px #00e5ff;
 }
 
 .hero p{
-font-size:22px;
-color:#d1d5db;
-margin-bottom:40px;
+font-size:24px;
+color:#cbd5e1;
+margin-bottom:45px;
 line-height:1.8;
 }
 
 .hero-btn{
 display:inline-block;
-padding:18px 40px;
+padding:18px 45px;
+border-radius:50px;
 background:linear-gradient(45deg,#00e5ff,#00ff88);
 color:black;
-font-size:18px;
+font-size:20px;
 font-weight:700;
-border-radius:50px;
 text-decoration:none;
 transition:0.4s;
-box-shadow:0 0 20px #00e5ff55;
+box-shadow:0 0 30px rgba(0,229,255,0.5);
 }
 
 .hero-btn:hover{
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 35px #00e5ff;
+transform:scale(1.08);
+box-shadow:0 0 50px #00e5ff;
 }
 
 /* SERVICES */
 
 .services{
 padding:120px 8%;
-position:relative;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:80px;
-}
-
-.section-title h2{
-font-size:55px;
-font-weight:800;
-margin-bottom:15px;
-}
-
-.section-title h2 span{
+font-size:60px;
+margin-bottom:70px;
 color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
 }
 
-.section-title p{
-font-size:18px;
-color:#cbd5e1;
-}
-
-.services-grid{
+.service-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:35px;
 }
 
 .card{
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
+padding:35px;
 border-radius:30px;
-padding:40px 35px;
-backdrop-filter:blur(18px);
+backdrop-filter:blur(12px);
+transition:0.5s;
 position:relative;
 overflow:hidden;
-transition:0.5s;
-animation:cardFloat 5s infinite ease-in-out;
-}
-
-.card:nth-child(2){
-animation-delay:1s;
-}
-
-.card:nth-child(3){
-animation-delay:2s;
-}
-
-.card:nth-child(4){
-animation-delay:3s;
-}
-
-@keyframes cardFloat{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-10px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
-.card:hover{
-transform:translateY(-15px) scale(1.02);
-border-color:#00e5ff;
-box-shadow:0 0 40px #00e5ff33;
 }
 
 .card::before{
 content:'';
 position:absolute;
-width:250px;
-height:250px;
-background:#00e5ff22;
-border-radius:50%;
-filter:blur(80px);
-top:-100px;
-right:-80px;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,transparent,#00e5ff33,transparent);
+top:-50%;
+left:-50%;
+transform:rotate(25deg);
+transition:0.8s;
 }
 
-.card h3{
-font-size:38px;
-margin-bottom:30px;
-font-weight:700;
-position:relative;
-z-index:1;
+.card:hover::before{
+left:100%;
+}
+
+.card:hover{
+transform:translateY(-15px) scale(1.02);
+border-color:#00e5ff;
+box-shadow:0 0 40px rgba(0,229,255,0.3);
+}
+
+.card h2{
+font-size:34px;
+margin-bottom:25px;
+color:#00e5ff;
 }
 
 .card ul{
 list-style:none;
-position:relative;
-z-index:1;
 }
 
 .card ul li{
 margin-bottom:18px;
-font-size:20px;
+font-size:19px;
 display:flex;
 align-items:center;
 gap:12px;
-color:#f1f5f9;
+color:#e2e8f0;
 }
 
 .card ul li::before{
-content:'➜';
-color:#00e5ff;
-font-size:20px;
+content:"➜";
+color:#00ff88;
 font-weight:bold;
+font-size:20px;
 }
 
 .apply-btn{
 display:inline-block;
-margin-top:35px;
+margin-top:30px;
 padding:16px 28px;
-background:linear-gradient(45deg,#00ff88,#00e5ff);
 border-radius:50px;
+background:linear-gradient(45deg,#00e5ff,#00ff88);
 color:black;
 font-weight:700;
 text-decoration:none;
 transition:0.4s;
-box-shadow:0 0 20px #00ff8860;
-position:relative;
-z-index:1;
+box-shadow:0 0 25px rgba(0,229,255,0.4);
 }
 
 .apply-btn:hover{
 transform:scale(1.08);
-box-shadow:0 0 35px #00ff88;
+box-shadow:0 0 40px #00e5ff;
 }
 
 /* CONTACT */
 
 .contact{
 padding:120px 8%;
-text-align:center;
-background:#020b18;
-}
-
-.contact h2{
-font-size:55px;
-margin-bottom:20px;
-}
-
-.contact h2 span{
-color:#00e5ff;
-}
-
-.contact p{
-font-size:20px;
-color:#cbd5e1;
-margin-bottom:40px;
 }
 
 .contact-box{
-display:inline-block;
-padding:35px;
+background:rgba(255,255,255,0.05);
+padding:50px;
 border-radius:30px;
-background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.08);
 backdrop-filter:blur(12px);
-box-shadow:0 0 30px #00e5ff22;
-animation:pulse 3s infinite;
+box-shadow:0 0 35px rgba(0,229,255,0.18);
 }
 
-@keyframes pulse{
-0%{
-box-shadow:0 0 20px #00e5ff22;
-}
-50%{
-box-shadow:0 0 40px #00e5ff55;
-}
-100%{
-box-shadow:0 0 20px #00e5ff22;
-}
-}
-
-.contact-box img{
-width:240px;
-border-radius:25px;
-margin-bottom:20px;
-}
-
-.contact-box h3{
-font-size:24px;
-margin-bottom:10px;
+.contact-box h2{
+font-size:45px;
+margin-bottom:25px;
+color:#00e5ff;
 }
 
 .contact-box p{
-font-size:18px;
-margin-bottom:15px;
+font-size:19px;
+margin-bottom:16px;
+color:#e2e8f0;
+line-height:1.8;
 }
 
-.whatsapp-btn{
-display:inline-block;
-padding:16px 30px;
-background:#00ff88;
-color:black;
-font-weight:700;
-border-radius:50px;
-text-decoration:none;
+.qr{
+margin-top:40px;
+text-align:center;
+}
+
+.qr img{
+width:280px;
+border-radius:25px;
+border:3px solid #00e5ff;
+box-shadow:0 0 35px rgba(0,229,255,0.4);
 transition:0.4s;
 }
 
-.whatsapp-btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 30px #00ff88;
+.qr img:hover{
+transform:scale(1.05);
 }
 
 /* FOOTER */
 
 footer{
-padding:30px;
+padding:35px;
 text-align:center;
-background:#01040a;
+background:black;
+margin-top:80px;
 color:#94a3b8;
-font-size:16px;
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.logo{
-font-size:24px;
-}
-
-nav{
-padding:18px 5%;
-}
-
-nav ul{
-gap:15px;
-}
-
-nav ul li a{
-font-size:14px;
-}
-
 .hero h1{
-font-size:45px;
+font-size:48px;
 }
 
 .hero p{
 font-size:18px;
 }
 
-.section-title h2{
-font-size:38px;
+.section-title{
+font-size:40px;
 }
 
-.card h3{
-font-size:28px;
+.logo{
+font-size:24px;
 }
 
-.card ul li{
-font-size:17px;
+nav ul{
+gap:18px;
+}
+
+nav ul li a{
+font-size:14px;
 }
 
 }
@@ -470,6 +388,14 @@ font-size:17px;
 </head>
 
 <body>
+
+<div class="bg-animation">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
 <!-- NAVBAR -->
 
@@ -491,11 +417,10 @@ font-size:17px;
 
 <div class="hero-content">
 
-<h1>Explore Our <span>Digital Services</span></h1>
+<h1>RANA'S Internet Cafe</h1>
 
 <p>
-Passport • PAN Card • Aadhaar • Ticket Booking • Online Forms<br>
-Fast Service • Trusted Support • Professional Assistance
+Professional Digital Services • Government Works • Online Support
 </p>
 
 <a href="#services" class="hero-btn">
@@ -510,29 +435,27 @@ Explore Our Services
 
 <section class="services" id="services">
 
-<div class="section-title">
-<h2>Our <span>Services</span></h2>
-<p>Professional Digital Services Available Here</p>
-</div>
+<h1 class="section-title">Our Services</h1>
 
-<div class="services-grid">
+<div class="service-grid">
 
 <!-- PASSPORT -->
 
 <div class="card">
 
-<h3>🛂 Passport Service</h3>
+<h2>🛂 Passport Service</h2>
 
 <ul>
 <li>New Passport Apply</li>
-<li>Renewal</li>
+<li>Passport Renewal</li>
 <li>Tatkaal Filing</li>
 <li>Name / DOB Correction</li>
 <li>Address Update</li>
-<li>Required Documents Guidance</li>
+<li>Document Guidance</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="apply-btn">
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
 </a>
 
 </div>
@@ -541,7 +464,7 @@ Explore Our Services
 
 <div class="card">
 
-<h3>💳 PAN Card Service</h3>
+<h2>💳 PAN Card Service</h2>
 
 <ul>
 <li>New PAN Apply</li>
@@ -551,7 +474,7 @@ Explore Our Services
 <li>e-PAN Download</li>
 </ul>
 
-<a href="https://wa.me/919337839933" class="apply-btn">
+<a href="https://wa.me/918455906942" class="apply-btn">
 Click For Apply & Price Details
 </a>
 
@@ -561,7 +484,7 @@ Click For Apply & Price Details
 
 <div class="card">
 
-<h3>🪪 Aadhaar Service</h3>
+<h2>🪪 Aadhaar Service</h2>
 
 <ul>
 <li>Guardian Name Correction</li>
@@ -581,7 +504,7 @@ Click For Apply & Price Details
 
 <div class="card">
 
-<h3>🎫 Ticket Booking</h3>
+<h2>🎫 Ticket Booking</h2>
 
 <ul>
 <li>Train Ticket</li>
@@ -591,7 +514,87 @@ Click For Apply & Price Details
 <li>Travel Assistance</li>
 </ul>
 
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
+
+</div>
+
+<!-- DL -->
+
+<div class="card">
+
+<h2>🚘 DL / LL Service</h2>
+
+<ul>
+<li>Learning License Apply</li>
+<li>DL Renewal</li>
+<li>Driving Test Slot</li>
+<li>Address Correction</li>
+<li>Online Exam Guidance</li>
+</ul>
+
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
+
+</div>
+
+<!-- VOTER -->
+
+<div class="card">
+
+<h2>🗳️ Voter ID Service</h2>
+
+<ul>
+<li>New Voter ID</li>
+<li>Correction</li>
+<li>Address Change</li>
+<li>EPIC Download</li>
+<li>Name Addition</li>
+</ul>
+
 <a href="https://wa.me/919337839933" class="apply-btn">
+Click For Apply & Price Details
+</a>
+
+</div>
+
+<!-- LAND -->
+
+<div class="card">
+
+<h2>📄 Land Record Service</h2>
+
+<ul>
+<li>ROR Download</li>
+<li>Land Record Check</li>
+<li>Online Verification</li>
+<li>Plot Information</li>
+<li>Land PDF Print</li>
+</ul>
+
+<a href="https://wa.me/918455906942" class="apply-btn">
+Click For Apply & Price Details
+</a>
+
+</div>
+
+<!-- PROJECT -->
+
+<div class="card">
+
+<h2>💻 Online Form / PPT</h2>
+
+<ul>
+<li>Government Forms</li>
+<li>Scholarship Apply</li>
+<li>Exam Forms</li>
+<li>Project Making</li>
+<li>PPT Design</li>
+</ul>
+
+<a href="https://wa.me/918455906942" class="apply-btn">
 Click For Apply & Price Details
 </a>
 
@@ -605,29 +608,34 @@ Click For Apply & Price Details
 
 <section class="contact" id="contact">
 
-<h2>Contact <span>Now</span></h2>
-
-<p>
-For Apply, Support & Price Details
-</p>
+<h1 class="section-title">Contact Details</h1>
 
 <div class="contact-box">
 
-<img src="image.png" alt="QR">
+<h2>📍 RANA'S Internet Cafe</h2>
 
-<h3>UPI ID</h3>
+<p><strong>Owner:</strong> Hemonshri Rana</p>
 
-<p>hemonshrirana@oksbi</p>
+<p><strong>Mobile:</strong> 8455906942 / 9337839933</p>
 
-<a href="https://wa.me/919337839933" class="whatsapp-btn">
-WhatsApp Now
-</a>
+<p><strong>Email:</strong> hemonshrirana@gmail.com</p>
+
+<p>
+<strong>Address:</strong><br>
+At- Jamkei, PO- Jakaikela,<br>
+PS- Bonaigarh, Dist- Sundargarh,<br>
+Odisha - 770038
+</p>
+
+<p><strong>UPI ID:</strong> hemonshrirana@oksbi</p>
+
+<div class="qr">
+<img src="image.png" alt="QR Code">
+</div>
 
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
